@@ -1,0 +1,71 @@
+#include "Adafruit_GFX.h"
+#include "MCUFRIEND_kbv.h"
+
+#include "lotr.c" //bitmap dosyamız
+
+MCUFRIEND_kbv tft(A3, A2, A1, A0, A4);  //tft isimli bir nesne yaratıyoruz.
+
+//RENKLERİ TANIMLIYORUZ
+
+#define BLACK 0x0000
+#define NAVY 0x000F
+#define DARKGREEN 0x03E0
+#define DARKCYAN 0x03EF
+#define MAROON 0x7800
+#define PURPLE 0x780F
+#define OLIVE 0x7BE0
+#define LIGHTGREY 0xC618
+#define DARKGREY 0x7BEF
+#define BLUE 0x001F
+#define GREEN 0x07E0
+#define CYAN 0x07FF
+#define RED 0xF800
+#define MAGENTA 0xF81F
+#define YELLOW 0xFFE0
+#define WHITE 0xFFFF
+#define ORANGE 0xFD20
+#define GREENYELLOW 0xAFE5
+#define PINK 0xF81F
+
+void setup() {
+uint16_t ID = tft.readID(); 
+tft.begin(ID); 
+
+tft.setRotation(0); //Ekran rotasyonu. 0= Varsayılan , 1=90 derece, 2=180 derece, 3=270 derece.
+
+tft.fillScreen(DARKGREY); //Arkaplan rengi
+tft.setCursor(60,80); //Metnin pozisyonu x&y cinsinden.
+tft.setTextColor(WHITE,BLUE); //Metnin rengi ve metin arkaplanının rengi. Arkaplan rengi kısmını boş bırakırsanız saydam olur.
+tft.setTextSize(1); //Metin büyüklüğü olarak 1 ile 5 arasında bir değer girebilirsiniz.
+tft.print("Bu yazinin boyutu 1"); //Yazdıracağımız metin
+tft.setCursor(7,90);
+tft.setTextSize(2); 
+tft.setTextColor(BLACK,YELLOW);
+tft.print("Bu yazinin boyutu 2"); 
+
+tft.drawPixel(20,20,WHITE); //Ekranın istediğiniz yerine bir piksel çizmek
+tft.drawPixel(20,21,WHITE); //Aşağıda arka arkaya 5 piksel çiziyoruz.
+tft.drawPixel(20,22,WHITE);
+tft.drawPixel(20,23,WHITE);
+tft.drawPixel(20,24,WHITE);
+
+tft.drawLine(50,20,100,40,WHITE); //Çizgi çizmek
+tft.fillRoundRect(150,20,50,40,5,WHITE); //Köşesi yumuşatılmış, içi dolu dikdörtgen
+//tft.drawRoundRect(x,y,w,h,r,t); //Köşesi yumuşatılmış, içi boş dikdörtgen
+//tft.fillRect(x,y,w,h,t); //Köşeli, içi dolu dikdörtgen
+//tft.drawRect(x,y,w,h,t); //Köşeli içi boş dikdörtgen
+//tft.drawCircle(x,y,r,t); // İçi boş daire
+//tft.fillCircle(x,y,r,t); // İçi dolu daire
+//tft.drawTriangle(x1,y1,x2,y2,x3,y3,t); // İçi boş üçgen
+//tft.fillTriangle(x1,y1,x2,y2,x3,y3,t); //İçi dolu üçgen
+
+tft.drawRGBBitmap(85, 200, lotr, 64, 38); //Resim gösterme
+
+}
+
+
+
+void loop() {
+
+
+}
