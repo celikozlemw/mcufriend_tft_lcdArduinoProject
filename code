@@ -27,6 +27,10 @@ MCUFRIEND_kbv tft(A3, A2, A1, A0, A4);
 #define GREENYELLOW 0xAFE5
 #define PINK 0xF81F
 
+//myFavoriteColor  0x721E
+
+
+
 void setup() {
 uint16_t ID = tft.readID(); 
 tft.begin(ID); 
