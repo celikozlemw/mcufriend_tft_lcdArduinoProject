@@ -1,7 +1,7 @@
 #include "Adafruit_GFX.h"
 #include "MCUFRIEND_kbv.h"
 
-#include "lotr.c" /* dosyamızın ismi*/
+#include "dosya.c" /* dosyamızın ismi*/
 
 MCUFRIEND_kbv tft(A3, A2, A1, A0, A4); 
 
@@ -63,7 +63,7 @@ tft.fillRoundRect(150,20,50,40,5,WHITE); //Köşesi yumuşatılmış, içi dolu 
 //tft.drawTriangle(x1,y1,x2,y2,x3,y3,t); // İçi boş üçgen
 //tft.fillTriangle(x1,y1,x2,y2,x3,y3,t); //İçi dolu üçgen
 
-//tft.drawRGBBitmap(85, 200, lotr, 64, 38); //Resim gösterme
+//tft.drawRGBBitmap(85, 200, dosya, 64, 38); //Resim gösterme
 
 }
 
